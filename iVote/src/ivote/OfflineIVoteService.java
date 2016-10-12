@@ -20,7 +20,7 @@ public class OfflineIVoteService implements IVoteService{
     
     
     /*
-    * FUNCTION: setQuestion()
+    * FUNCTION: setNewQuestion()
     *
     * Sets the question object for which students can submit answers. Also clears the voteMap so that students can vote again.
     */
@@ -30,7 +30,7 @@ public class OfflineIVoteService implements IVoteService{
     }
     
     /*
-    * FUNCTION: submitVote()
+    * FUNCTION: displayResults()
     *
     * Prints the current results of the currentQuesiton to the console. Shows the prompt, followed by the possible answers with
     * their respective vote counts.

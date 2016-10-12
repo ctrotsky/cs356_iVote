@@ -12,7 +12,24 @@
 package ivote;
 
 public interface IVoteService {
+    /*
+    * FUNCTION: setQuestion()
+    *
+    * Should set a new question object for students to submit answers to.
+    */
     public void setNewQuestion(Question question);
+    
+    /*
+    * FUNCTION: displayResults()
+    *
+    * Should displays the results of the current question to the user.
+    */
     public void displayResults();
+    
+    /*
+    * FUNCTION: submitVote()
+    *
+    * Submits a vote from a student to the currentQuestion. Should be called by a Student object.
+    */
     public void submitVote(String ID, int vote);
 }

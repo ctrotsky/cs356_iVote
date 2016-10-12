@@ -1,25 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: OfflineIVoteService.java
+* author: Colin Trotter
+* class: CS 356 – Object-Oriented Design and Programming
+*
+* assignment: iVote
+* date last modified: 10/11/2016
+*
+* purpose: An implementation of the iVote service designed to be used offline and by randomly generated Student objects.
+*
+****************************************************************/ 
 package ivote;
 
 import java.util.HashMap;
 
-/**
- *
- * @author Colin
- */
 public class OfflineIVoteService implements IVoteService{
     private Question currentQuestion;
     //replace 20 with numstudents
     private HashMap<String, Integer> voteMap = new HashMap(20);
     
-    public void setQuestion(Question question){
+    
+    /*
+    * FUNCTION: setQuestion()
+    *
+    * Sets the question object for which students can submit answers. Also clears the voteMap so that students can vote again.
+    */
+    public void setNewQuestion(Question question){
         currentQuestion = question;
+        voteMap.clear();
     }
     
+    /*
+    * FUNCTION: submitVote()
+    *
+    * Prints the current results of the currentQuesiton to the console. Shows the prompt, followed by the possible answers with
+    * their respective vote counts.
+    */
     public void displayResults(){
         
         int[] votes = currentQuestion.getVotes();
@@ -31,15 +46,23 @@ public class OfflineIVoteService implements IVoteService{
         }
     }
     
+    /*
+    * FUNCTION: submitVote()
+    *
+    * Submits a vote to the currentQuestion. If a student with the same ID has already voted, then this vote will overwrite
+    * their previous vote. Only allows votes that are possible answers to the question.
+    */
     public void submitVote(String id, int vote){
-        Integer oldVote = voteMap.put(id, vote);
-        //if this student has voted before, retract their previous vote
-        if (oldVote != null){
-            currentQuestion.retractVote(oldVote);        
+        if (vote < currentQuestion.getPossibleAnswers().length && vote >= 0){
+            Integer oldVote = voteMap.put(id, vote);
+            //if this student has voted before, retract their previous vote
+            if (oldVote != null){
+                currentQuestion.retractVote(oldVote);        
+            }
+            currentQuestion.submitVote(vote);
         }
-        currentQuestion.submitVote(vote);
+        else {
+            System.out.println("Erorr: Invalid vote (" + vote + ") from student: \"" + id + "\"");
+        }
     }
 }
-
-
-//stuff to do, random number of students, check for vote out of bounds

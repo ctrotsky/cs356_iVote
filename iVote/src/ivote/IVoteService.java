@@ -1,16 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: IVoteService.java
+* author: Colin Trotter
+* class: CS 356 – Object-Oriented Design and Programming
+*
+* assignment: iVote
+* date last modified: 10/11/2016
+*
+* purpose: An interface used to create types of IVoteServices in which students can submit answers for a given question.
+*
+****************************************************************/ 
 package ivote;
 
-/**
- *
- * @author Colin
- */
 public interface IVoteService {
-    public void setQuestion(Question question);
+    public void setNewQuestion(Question question);
     public void displayResults();
     public void submitVote(String ID, int vote);
 }

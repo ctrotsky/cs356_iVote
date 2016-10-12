@@ -10,5 +10,7 @@ package ivote;
  * @author Colin
  */
 public interface IVoteService {
-    
+    public void setQuestion(Question question);
+    public void displayResults();
+    public void submitVote(String ID, int vote);
 }

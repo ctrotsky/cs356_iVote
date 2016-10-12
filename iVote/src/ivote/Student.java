@@ -10,14 +10,19 @@ package ivote;
  * @author Colin
  */
 public class Student {
-    private String ID;
-    
-    
-    public Student(){
-        ID = String.valueOf(this.hashCode());
+    private String id;
+    private IVoteService service;
+
+    public Student(String id, IVoteService service){
+        this.id = id;
+        this.service = service;
     }
     
-    public void sumbitAnswer(){
-        
+    public String getID(){
+        return id;
+    }
+    
+    public void submitVote(int vote){
+        service.submitVote(id, vote);
     }
 }

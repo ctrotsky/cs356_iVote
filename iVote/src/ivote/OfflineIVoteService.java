@@ -62,7 +62,7 @@ public class OfflineIVoteService implements IVoteService{
             currentQuestion.submitVote(vote);
         }
         else {
-            System.out.println("Erorr: Invalid vote (" + vote + ") from student: \"" + id + "\"");
+            System.out.println("Erorr: Invalid vote (" + vote + ") from student: \"" + id + "\". Vote not counted.");
         }
     }
 }

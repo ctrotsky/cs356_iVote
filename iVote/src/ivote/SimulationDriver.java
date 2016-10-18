@@ -18,7 +18,6 @@ import java.util.Random;
 public class SimulationDriver {
     
     public static void main(String[] args) {
-        boolean running = true;
         
         Random rand = new Random();
         OfflineIVoteService service = new OfflineIVoteService();

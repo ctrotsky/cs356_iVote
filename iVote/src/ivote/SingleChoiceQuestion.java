@@ -11,10 +11,6 @@
 ****************************************************************/ 
 package ivote;
 
-/**
- *
- * @author Colin
- */
 public class SingleChoiceQuestion implements Question{
 private String prompt;
     private int[] votes;
